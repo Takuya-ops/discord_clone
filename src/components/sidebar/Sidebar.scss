@@ -44,3 +44,33 @@ img {
   justify-content: space-between;
   padding: 20px;
 }
+
+.sidebarChanels {
+  padding: 12px;
+}
+
+.sidebarChanelsHeader {
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.sidebarHeader {
+  display: flex;
+  color:white;
+  justify-content: space-between;
+}
+
+.sidebarHeader h4 {
+  color: white
+}
+
+.sidebarAddIcon {
+  cursor: pointer;
+}
+
+.sidebarChannelList {
+  padding-top: 10px;
+}
