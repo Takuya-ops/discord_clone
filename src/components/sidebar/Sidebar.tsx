@@ -37,7 +37,6 @@ const Sidebar = () => {
             </div>
             <div className='sidebarFooter'>
               <div className='sidebarAccount'>
-                <img src="./logo512.png" alt=''/>
                 <div className='accountName'>
                   <h4>ShinCode</h4>
                   <span>#8162</span>
