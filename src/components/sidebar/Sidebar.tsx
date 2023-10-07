@@ -1,8 +1,11 @@
 import React from 'react'
 import "./Sidebar.scss"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AddIcon from '@mui/icons-material/Add';
 import SidebarChannel from './SidebarChannel';
+import AddIcon from '@mui/icons-material/Add';
+import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoice';
+import HeadsetIcon from '@mui/icons-material/Headset';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const Sidebar = () => {
   return (
@@ -35,17 +38,24 @@ const Sidebar = () => {
               <SidebarChannel/>
               <SidebarChannel/>
             </div>
+
             <div className='sidebarFooter'>
               <div className='sidebarAccount'>
-                <div className='accountName'>
-                  <h4>ShinCode</h4>
-                  <span>#8162</span>
+                <img src="./logo512.png" alt=""/>
+              </div>
+              <div className='accountName'>
+                <h4>Takuya</h4>
+                <span>#8162</span>
+              </div>
+              <div className='sidebarVoice'>
+                <KeyboardVoiceIcon/>
+                <HeadsetIcon/>
+                <SettingsIcon/>
                 </div>
               </div>
             </div>
           </div>
       </div>
-    </div>
   )
 }
 

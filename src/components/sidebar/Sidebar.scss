@@ -35,6 +35,7 @@ img {
 .sidebarRight {
  background-color: #2b2d33;
  width: 300px;
+ position: relative;
 }
 
 .sidebarTop {
@@ -74,3 +75,52 @@ img {
 .sidebarChannelList {
   padding-top: 10px;
 }
+
+.accountName {
+  color: white;
+}
+
+.sidebarFooter {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+  padding-bottom: 10px;
+  border-top: 1px solid #686a6e;
+  padding-top: 10px;
+  margin-left: -3px;
+}
+
+.sidebarAccount {
+  display: flex;
+  align-items: center;
+
+  img {
+    width:35px;
+    display: flex;
+    align-items: left;
+    padding-right: 200px;
+  }
+}
+
+.sidebarVoice {
+  display: flex;
+  align-items: center;
+  color: #686a6e;
+}
+
+.accountName {
+  margin-left: 5px;
+  color: white;
+}
+
+.h4 {
+  color: white;
+  font-weight: 500;
+}
+
+ span {
+  color: #686a6e;
+ }
