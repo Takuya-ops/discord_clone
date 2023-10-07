@@ -1,0 +1,41 @@
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.chatHeaderLeft {
+  padding-left: 15px;
+  .chatHeaderHash {
+  color: #7b7c85;
+  padding-right: 7px;
+  }
+  h3 {
+    color: white;
+  }
+}
+
+.chatHeaderRight {
+  cursor: pointer;
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #7b7c85;
+  .chatHeaderSearch {
+    display: flex;
+    align-items: center;
+    background-color: #24242b;
+    padding: 3px;
+    border-radius: 3px;
+
+    input {
+      background: transparent;
+      outline: none;
+      color: white;
+      border: none;
+    }
+  }
+}

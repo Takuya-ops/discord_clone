@@ -2,7 +2,7 @@
   display: flex;
   flex: 0.35;
   height: 100vh;
-  background-color: #33363d;
+  // background-color: #33363d;
 }
 
 .sidebarLeft {
@@ -36,6 +36,7 @@ img {
  background-color: #2b2d33;
  width: 300px;
  position: relative;
+ flex-grow: 1;
 }
 
 .sidebarTop {
@@ -101,7 +102,7 @@ img {
     width:35px;
     display: flex;
     align-items: left;
-    padding-right: 200px;
+    padding-right: 220px;
   }
 }
 
@@ -109,6 +110,8 @@ img {
   display: flex;
   align-items: center;
   color: #686a6e;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .accountName {
@@ -121,6 +124,11 @@ img {
   font-weight: 500;
 }
 
- span {
-  color: #686a6e;
- }
+span {
+color: #686a6e;
+}
+
+.MuiSvgIcon-root {
+  padding-left: 10px;
+  cursor: pointer;
+}
