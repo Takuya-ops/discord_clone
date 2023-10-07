@@ -28,7 +28,7 @@ const Sidebar = () => {
           </div>
             <div className='sidebarHeader'>
               <ExpandMoreIcon/>
-              <h4>プログラミング</h4>
+              <h4>プログラミングチャンネル</h4>
               <AddIcon className='sidebarAddIcon'/>
             </div>
             <div className='sidebarChannelList'>
@@ -51,10 +51,10 @@ const Sidebar = () => {
                 <KeyboardVoiceIcon/>
                 <HeadsetIcon/>
                 <SettingsIcon/>
-                </div>
               </div>
             </div>
           </div>
+        </div>
       </div>
   )
 }
