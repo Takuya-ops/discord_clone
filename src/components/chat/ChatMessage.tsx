@@ -10,7 +10,7 @@ const ChatMessage = () => {
         <h4>Takuya
           <span className='messageTimestamp'>2023/11/1</span>
         </h4>
-        <p>メッセージ本文</p>
+        <p>メッセージ本文！</p>
       </div>
     </div>
   )
