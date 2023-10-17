@@ -16,6 +16,7 @@ const Chat = () => {
         <ChatMessage/>
         <ChatMessage/>
         <ChatMessage/>
+        <ChatMessage/>
       <div className='chatInput'>
         <AddCircle/>
         <form>
