@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ChatHeader from './ChatHeader'
 import "./Chat.scss"
 import { AddCircle, CardGiftcard, EmojiEmotions, Gif } from '@mui/icons-material'
 import ChatMessage from './ChatMessage'
 import { useAppSelector } from '../../app/hooks'
-import { CollectionReference, DocumentData, DocumentReference, addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { CollectionReference, DocumentData, DocumentReference, Timestamp, addDoc, collection, onSnapshot, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase'
+
+interface Messages {
+  timestamp: Timestamp;
+  message: string;
+  user: {
+    uid: string;
+    photo: string;
+    email: string;
+    displayName: string;
+  }
+}
 
 const Chat = () => {
   const [inputText, setInputText] = useState<string>("");
+  const [messages, setMessages] = useState<Messages[]>([]);
 
   const channelName = useAppSelector((state) => state.channel.channelName)
   // console.log(channelName)
@@ -17,6 +29,29 @@ const Chat = () => {
   
   const channelId = useAppSelector((state) => state.channel.channelId)
   const user = useAppSelector((state) => state.user.user)
+
+  useEffect(() => {
+    // 参照元
+    let collectionRef = collection(
+      db, "channels",
+      String(channelId),
+      "messages"
+    );
+
+    // chatの投稿をリアルタイムで取得する
+    onSnapshot(collectionRef, (snapshot) => {
+      let results: Messages[] = [];
+      snapshot.docs.forEach((doc) => {
+        results.push({
+          timestamp: doc.data().timestamp,
+          message: doc.data().message,
+          user: doc.data().user,
+        })
+      })
+      setMessages(results)
+      // console.log(results)
+    })
+  })
 
   const sendMessage = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -32,7 +67,7 @@ const Chat = () => {
       collectionRef,
         {
           message: inputText,
-          timestastamp: serverTimestamp(),
+          timestamp: serverTimestamp(),
           user: user,
         }
       );
@@ -43,11 +78,9 @@ const Chat = () => {
     <div className='chat'>
       <ChatHeader channelName={channelName}/>
       <div className='chatMessage'></div>
-        <ChatMessage/>
-        <ChatMessage/>
-        <ChatMessage/>
-        <ChatMessage/>
-        <ChatMessage/>
+        {messages.map((message, index) => (
+          <ChatMessage key={index} message={message.message} timestamp={message.timestamp} user={message.user} />
+        ))}
       <div className='chatInput'>
         <AddCircle/>
         <form>
