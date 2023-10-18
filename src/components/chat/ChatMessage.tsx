@@ -1,6 +1,7 @@
 import React from 'react'
 import "./ChatMessage.scss"
-import { AccountCircle } from '@mui/icons-material'
+// import { AccountCircle } from '@mui/icons-material'
+import { Avatar } from '@mui/material';
 import { Timestamp } from 'firebase/firestore';
 
 type Props = {
@@ -18,9 +19,10 @@ const ChatMessage = (props: Props) => {
   const {message, timestamp, user} = props;
   return (
     <div className='message'>
-      <AccountCircle/>
+      {/* <AccountCircle/> */}
+      {/* <Avatar/> */}
       {/* 画像をgoogleアカウントのものにしたい時 */}
-      {/* <AccountCircle src={user?.photo} /> */}
+      <Avatar src={user?.photo} />
       <div className='messageInfo'>
         {/* userが存在したときだけ、プロパティを参照する */}
         <h4>{user?.displayName}

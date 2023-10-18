@@ -4,7 +4,7 @@ import "./Chat.scss"
 import { AddCircle, CardGiftcard, EmojiEmotions, Gif } from '@mui/icons-material'
 import ChatMessage from './ChatMessage'
 import { useAppSelector } from '../../app/hooks'
-import { CollectionReference, DocumentData, DocumentReference, Timestamp, addDoc, collection, onSnapshot, serverTimestamp } from 'firebase/firestore'
+import { CollectionReference, DocumentData, DocumentReference, Timestamp, addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 interface Messages {
@@ -38,8 +38,11 @@ const Chat = () => {
       "messages"
     );
 
+    // 新規の投稿が下に追加されていくようにする
+    const collectionRefOrderBy = query(collectionRef, orderBy("timestamp", "asc"))
+
     // chatの投稿をリアルタイムで取得する
-    onSnapshot(collectionRef, (snapshot) => {
+    onSnapshot(collectionRefOrderBy, (snapshot) => {
       let results: Messages[] = [];
       snapshot.docs.forEach((doc) => {
         results.push({
@@ -71,21 +74,23 @@ const Chat = () => {
           user: user,
         }
       );
-      console.log(docRef)
+      // console.log(docRef)
+      setInputText("");
     }
 
   return (
     <div className='chat'>
       <ChatHeader channelName={channelName}/>
-      <div className='chatMessage'></div>
+      <div className='chatMessage'>
         {messages.map((message, index) => (
           <ChatMessage key={index} message={message.message} timestamp={message.timestamp} user={message.user} />
         ))}
+      </div>
       <div className='chatInput'>
         <AddCircle/>
         <form>
           {/* onchangeメソッドで入力した文字を取得できる */}
-          <input type="text" placeholder='# Youtubeへメッセージを送信' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)}/>
+          <input type="text" placeholder='# Youtubeへメッセージを送信' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)} value={inputText}/>
           <button type="submit" className='chatInputButton' onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => sendMessage(e)}>
              送信
           </button>

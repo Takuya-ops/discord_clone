@@ -59,8 +59,8 @@ const Sidebar = () => {
             <div className='sidebarFooter'>
               <div className='sidebarAccount'>
                 {/* nullの状態がある可能性のあるものは?を付ける */}
-                {/* <img src={user?.photo} alt="" onClick={() => auth.signOut()}/> */}
-                <img src={"./logo192.png"} alt="" onClick={() => auth.signOut()}/>
+                <img src={user?.photo} alt="" onClick={() => auth.signOut()}/>
+                {/* <img src={"./logo192.png"} alt="" onClick={() => auth.signOut()}/> */}
               </div>
               <div className='accountName'>
                 <h4>{user?.displayName}</h4>

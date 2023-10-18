@@ -1,13 +1,14 @@
 .message {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 0px 15px 0px 15px;
   color: white;
   // margin-bottom: 10px;
 
   .MuiSvgIcon-root{
     width: 40px;
     height: 40px;
+    margin-right: 10px;
   }
 
   .messageInfo {

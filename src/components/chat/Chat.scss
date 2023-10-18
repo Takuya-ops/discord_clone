@@ -3,25 +3,29 @@
   flex-direction: column;
   flex-grow: 1;
   background-color: #33363d;
+  height: 100vh;
+  overflow-y: scroll;
   // justify-content: space-between;
 
   .chatMessage {
-    flex-grow: 1;
+    height: 100vh;
+    overflow-y: scroll;
   }
+
   .chatInput {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 0px 10px 0px 10px;
     background-color: #474b53;
     border-radius: 5px;
-    margin: 20px;
+    margin: 0px 10px 15px 10px;
     color: lightgray;
 
     form {
       flex-grow: 1;
       input {
-        padding: 15px;
+        padding: 12px;
         background: transparent;
         border: none;
         outline: none;
