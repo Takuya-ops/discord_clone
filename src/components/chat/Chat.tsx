@@ -92,7 +92,7 @@ const Chat = () => {
           {/* onchangeメソッドで入力した文字を取得できる */}
           <input type="text" placeholder='# Youtubeへメッセージを送信' onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputText(e.target.value)} value={inputText}/>
           <button type="submit" className='chatInputButton' onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => sendMessage(e)}>
-             送信
+             送る
           </button>
         </form>
         <div className='chatInputIcons'>
